@@ -29,20 +29,20 @@ export class VerloopDisplayTime extends LitElement {
       if (this.format === '24h') {
         return modifiedTime.toLocaleTimeString('en-US', {
           timeStyle: 'short',
-        });
-      } else if (this.format === '12h') {
-        return modifiedTime.toLocaleTimeString('en-US', {
-          timeStyle: 'short',
-          hour12: true,
+          hour12: false,
         });
       }
+      return modifiedTime.toLocaleTimeString('en-US', {
+        timeStyle: 'short',
+        hour12: true,
+      });
     }
     return '';
   }
 
   override render() {
     if (this.time !== 0 && !isNaN(this.time)) {
-      return html` <span>${this._getFormattedTime()}</span> `;
+      return html` <span>${this._getFormattedTime()}</span>`;
     }
     return html``;
   }

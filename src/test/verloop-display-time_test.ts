@@ -14,17 +14,28 @@ suite('vp-display-time', () => {
     assert.shadowDom.equal(el, ``);
   });
 
-  test('renders with a set name', async () => {
+  test('renders with a set time', async () => {
     const el = await fixture(
-      html`<vp-display-time
-        time="1678362950000"
-      ></vp-display-time>`
+      html`<vp-display-time time="1678362950000"></vp-display-time>`
     );
-    
-    assert.shadowDom.equal(
-      el,
-      `<span> 5:25 PM </span>`
+
+    assert.shadowDom.equal(el, `<span>  5:25 PM </span>`);
+  });
+
+  test('renders with a set time & correct time format', async () => {
+    const el = await fixture(
+      html`<vp-display-time time="1678362950000" format="24h"></vp-display-time>`
     );
+
+    assert.shadowDom.equal(el, `<span> 17:25 </span>`);
+  });
+
+  test('renders with a set time & invalid time format', async () => {
+    const el = await fixture(
+      html`<vp-display-time time="1678362950000" format="wrong"></vp-display-time>`
+    );
+
+    assert.shadowDom.equal(el, `<span> 5:25 PM </span>`);
   });
 
   test('styling applied', async () => {
