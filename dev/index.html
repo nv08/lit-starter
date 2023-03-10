@@ -4,10 +4,16 @@
   <head>
     <meta charset="utf-8" />
     <title>&lt;my-element> Demo</title>
+    <script type="module" src="../verloop-display-time.js"></script>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../node_modules/lit/polyfill-support.js"></script>
-    <script type="module" src="../my-element.js"></script>
     <style>
+      * {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: green;
+        font-size: 10px;
+      }
       p {
         border: solid 1px blue;
         padding: 8px;
@@ -15,8 +21,6 @@
     </style>
   </head>
   <body>
-    <my-element>
-      <p>This is child content</p>
-    </my-element>
+    <vp-display-time time="1678362950000"> </vp-display-time>
   </body>
 </html>
